@@ -1,0 +1,29 @@
+{
+  "name": "shokugeki",
+  "version": "1.0.0",
+  "description": "Recipe application",
+  "main": "index.html",
+  "dependencies": {
+    "core-js": "^3.9.1",
+    "prettier": "^2.2.1",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-nightly.625",
+    "parcel": "^2.0.0-nightly.623"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBeamer/shokugeki.git"
+  },
+  "author": "Michael Beamer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrBeamer/shokugeki/issues"
+  },
+  "homepage": "https://github.com/MrBeamer/shokugeki#readme"
+}
