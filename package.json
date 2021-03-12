@@ -5,11 +5,16 @@
   "main": "index.html",
   "dependencies": {
     "core-js": "^3.9.1",
+    "fractional": "^1.0.0",
     "prettier": "^2.2.1",
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.13.0",
     "@parcel/transformer-sass": "^2.0.0-nightly.625",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.21.0",
     "parcel": "^2.0.0-nightly.623"
   },
   "scripts": {
