@@ -1,5 +1,4 @@
 import icons from 'url:../../img/icons.svg'; // parcel to replace icons with parcel icons, then put in the src of the images html
-import { Fraction } from 'fractional';
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
   #data;

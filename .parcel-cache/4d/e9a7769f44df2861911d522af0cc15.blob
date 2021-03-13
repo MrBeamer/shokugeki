@@ -1,0 +1,16 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "API_URL", function () {
+  return API_URL;
+});
+_parcelHelpers.export(exports, "API_KEY", function () {
+  return API_KEY;
+});
+_parcelHelpers.export(exports, "getJSON", function () {
+  return getJSON;
+});
+const API_URL = `https://forkify-api.herokuapp.com/api/v2/recipes/`;
+const API_KEY = `?key=<a6b8d971-9bf8-47de-9bcc-f660ef493642>`;
+async function getJSON() {
+  try {} catch (err) {}
+}
