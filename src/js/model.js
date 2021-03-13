@@ -1,5 +1,5 @@
 import { API_URL } from './config.js';
-import { API_KEY } from './config.js';
+import { KEY } from './config.js';
 import { getJSON } from './helpers.js';
 export const state = {
   recipe: {},
@@ -11,9 +11,7 @@ export const state = {
 
 export async function loadRecipe(id) {
   try {
-    const data = await getJSON(`${API_URL}${id}${API_KEY}`);
-
-    // const res = await fetch(`${API_URL}${id}${API_KEY}`);
+    const data = await getJSON(`${API_URL}${id}?key=${KEY}`);
 
     const { recipe } = data.data;
     state.recipe = {
@@ -38,7 +36,8 @@ export async function loadRecipe(id) {
 export async function loadSearchResults(query) {
   try {
     state.search.query = query;
-    const data = await getJSON(` ${API_URL}?search=${query}${API_KEY}> `);
+    // const data = await getJSON(` ${API_URL}?search=${query}${API_KEY}> `);
+    const data = await getJSON(`${API_URL}?search=${query}&key=${KEY}`);
     state.search.results = data.data.recipes.map(recipe => {
       return {
         id: recipe.id,

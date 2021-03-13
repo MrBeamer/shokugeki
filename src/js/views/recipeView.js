@@ -1,6 +1,9 @@
 import View from './View.js';
 import icons from 'url:../../img/icons.svg'; // parcel to replace icons with parcel icons, then put in the src of the images html
 class RecipeView extends View {
+  _parentElement = document.querySelector('.recipe');
+  _errorMessage = 'No recipes found. Please try again!';
+  _message = '';
   addHandlerRender(handler) {
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }

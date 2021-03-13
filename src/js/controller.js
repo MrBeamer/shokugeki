@@ -6,6 +6,10 @@ import searchResultView from './views/searchResultView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
+if (module.hot) {
+  module.hot.accept();
+}
+
 ///////////////////////////////////////
 
 // Gets Recipe from API
@@ -31,6 +35,8 @@ async function controlRecipes() {
 
 async function controlSearchResults() {
   try {
+    searchResultView.renderSpinner();
+
     // get query
     const query = searchView.getQuery();
     if (!query) return;
@@ -41,8 +47,8 @@ async function controlSearchResults() {
 
     /// rendering search results
     const recipes = model.state.search.results;
-    console.log(recipes);
-    searchResultView.renderSearchResults(recipes);
+
+    searchResultView.render(recipes);
   } catch (err) {
     console.log(err);
   }

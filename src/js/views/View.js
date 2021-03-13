@@ -1,12 +1,10 @@
 import icons from 'url:../../img/icons.svg'; // parcel to replace icons with parcel icons, then put in the src of the images html
 
 export default class View {
-  _parentElement = document.querySelector('.recipe');
   _data;
-  _errorMessage = 'No recipes found for your query. Please try again!';
-  _message = '';
-
   render(data) {
+    if (!data || (Array.isArray(data) && data.length === 0))
+      return this.renderError();
     this._data = data;
     const markup = this._generateMarkup();
     this._clear();
