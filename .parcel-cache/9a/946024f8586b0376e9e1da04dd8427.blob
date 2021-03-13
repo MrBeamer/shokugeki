@@ -1,0 +1,72 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "state", function () {
+  return state;
+});
+_parcelHelpers.export(exports, "loadRecipe", function () {
+  return loadRecipe;
+});
+_parcelHelpers.export(exports, "searchRecipe", function () {
+  return searchRecipe;
+});
+var _configJs = require('./config.js');
+var _helpersJs = require('./helpers.js');
+const state = {
+  recipe: {}
+};
+async function loadRecipe(id) {
+  try {
+    const data = await _helpersJs.getJSON(`${_configJs.API_URL}${id}${_configJs.API_KEY}`);
+    // const res = await fetch(`${API_URL}${id}${API_KEY}`);
+    const {recipe} = data.data;
+    state.recipe = {
+      cookingTime: recipe.cooking_time,
+      id: recipe.id,
+      image: recipe.image_url,
+      ingredients: recipe.ingredients,
+      publisher: recipe.publisher,
+      servings: recipe.servings,
+      sourceUrl: recipe.source_url,
+      title: recipe.title
+    };
+    console.log(state.recipe);
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
+// ///////////
+function getRecipe(event) {
+  event.preventDefault();
+  query = document.querySelector('.search__field').value;
+  console.log(query);
+  searchRecipe(query);
+}
+document.querySelector('.search__btn').addEventListener('click', getRecipe);
+async function searchRecipe(query) {
+  try {
+    const data = await _helpersJs.getJSON(` https://forkify-api.herokuapp.com/api/v2/recipes?search=${query}${_configJs.API_KEY}> `);
+    const recipes = data.data.recipes;
+    console.log(recipes);
+    renderSearchResults(recipes);
+  } catch (eer) {}
+}
+function renderSearchResults(recipes) {
+  const markUp = `  <li class="preview">
+      <a class="preview__link preview__link--active" href="#23456">
+        <figure class="preview__fig">
+          <img src="src/img/test-1.jpg" alt="Test" />
+        </figure>
+        <div class="preview__data">
+          <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+          <p class="preview__publisher">The Pioneer Woman</p>
+          <div class="preview__user-generated">
+            <svg>
+              <use href="src/img/icons.svg#icon-user"></use>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </li>`;
+  document.querySelector('.results').insertAdjacentHTML('afterbegin', markUp);
+}
