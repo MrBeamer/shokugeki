@@ -3,7 +3,6 @@ import icons from 'url:../../img/icons.svg'; // parcel to replace icons with par
 
 class PaginationView extends View {
   _parentElement = document.querySelector('.pagination');
-
   _generateMarkup() {
     const numbPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
@@ -52,13 +51,10 @@ class PaginationView extends View {
       const button = event.target.closest('.btn--inline');
       if (!button) return;
       const goToPage = Number(button.dataset.goto);
-      console.log(goToPage);
       if (button.classList.contains('pagination__btn--next')) {
-        console.log('right');
         handler(goToPage);
       }
       if (button.classList.contains('pagination__btn--prev')) {
-        console.log('left');
         handler(goToPage);
       }
     });
