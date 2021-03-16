@@ -22,6 +22,7 @@ class PaginationView extends View {
       const part2 = this._generateMarkupPreviewLeft();
       return part1 + part2;
     }
+    return '';
   }
   _generateMarkupPreviewLeft(recipe) {
     return `

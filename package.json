@@ -2,7 +2,7 @@
   "name": "shokugeki",
   "version": "1.0.0",
   "description": "Recipe application",
-  "main": "index.html",
+  "default": "index.html",
   "dependencies": {
     "core-js": "^3.9.1",
     "fractional": "^1.0.0",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --dist-dir"
   },
   "repository": {
     "type": "git",
